@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
+<script src="m.js"></script>
+<style>
+</style>
+<script>
+$(function() {
+    $('.uploadzone')
+        //drap drop upload
+        .on('dragenter', function(e)
+        {
+            e.stopPropagation();
+            e.preventDefault();
+        })
+        .on('dragover', function(e)
+        {
+            e.stopPropagation();
+            e.preventDefault();
+        })
+        .on('dragleave', function(e)
+        {
+            e.stopPropagation();
+            e.preventDefault();
+        })
+        .on('drop', function(e) {
+            e.preventDefault() ;
+            e.stopPropagation() ;
+            
+            var files = e.originalEvent.dataTransfer.files ;
+            
+            var file = files[0] ;
+
+            ut1 = new uT({
+                target: '//localhost/resume3/uploader.php',
+                file: file,
+            }) ;
+
+            uM.add(ut1) ;
+        }) ;
+}) ;
+</script>
+</head>
+<body>
+
+<div class="uploadzone" style="width:100px;height:100px;border:1px solid black;"></div>
+
+</body>
+</html>
