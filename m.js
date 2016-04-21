@@ -39,8 +39,8 @@ var uM = (function() {
         
         //prepare binary file
         var formdata = new FormData() ;
-        //var blob = taskObj.file.slice(taskObj.uploadedBytes, taskObj.uploadedBytes+taskObj.chunkSize) ;
-        formdata.append('file', taskObj.file) ;
+        var blob = taskObj.file.slice(taskObj.uploadedBytes, taskObj.uploadedBytes+taskObj.chunkSize) ;
+        formdata.append('file', blob) ;
 
         //prepare query string
         var getQString = function() {
